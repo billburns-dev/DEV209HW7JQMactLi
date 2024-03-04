@@ -1,120 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Bill Burns">
+    <meta name="description" content="personal energy balance log and calculator">
+    <meta name="keywords" content="energy, balance, BMR, PAL, TDEE">
+    <title>My Energy Balance</title>
+    
+    <!--  Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&display=swap" rel="stylesheet">
 
-<head>
-  <meta charset="UTF-8">
-  <title>My Energy Balance</title>
-
-  <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
-
-  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <script src="index.js"></script>
-  <link rel="stylesheet" type="text/css" href="index.css">
-
+    <!-- jQuery Library, jQuery Mobile (jQM) Library, jQuery Mobile (jQM) CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <!-- provides an input spinner control -->
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/spinbox/latest/jqm-spinbox.min.js"></script>
+    
+    <!-- local JavaScript -->
+    <script src="index.js"></script>
+    
+     <!-- local CSS -->
+    <link rel="stylesheet" type="text/css" href="index.css">
+    
+    <!--  Abbreviations Used:
+          bmr   Basal Metabolic Rate              pal   Physical Activity Level
+          tdee  Total Daily Energy Expenditure    tdci  Total Daily Caloric Intake
+          debd  Daily Energy Balance Delta
+    -->
+    
 </head>
 
-<body>
-
-  <!-- Start of  page ------------------------------------------------------------------>
-  <div data-role="page" id="home">
-
-    <!--   page header -->
-    
-    <div data-role="header" data-theme='a'>
-      <h1>My Movies</h1>
-<div data-role="navbar" data-theme='b'>
-  <ul>
-    <li><a href="#home">Home Page</a></li>
-    <li><a href="#Load">Add Movie</a></li>
-    <li><a href="#ListAll">List Movies</a></li>
-  </ul>
-</div><!-- /navbar -->
-    </div>
-
-    <!--   page content -->
-    <div data-role="content" data-theme='b'>
-      <div class="newFont">
-        <h2> My Collection of Movies</h2>
+  <body>
+    <!-- "home-page Page" ------------------------------------------------------------------------- START -->
+    <div data-role="page" id="home-page">
+      <!-- header ----------------------------------------------------------------------- START -->
+      <div data-role="header" data-theme='a'>
+        <h1>My Energy Balance</h1>
+        <!-- navbar ----------------------------------------------------------- START -->
+        <div data-role="navbar" data-theme='a'>
+          <ul>
+            <li><a href="#home-page">Home Page</a></li>
+            <li><a href="#new-entry">New Log Entry</a></li>
+            <li><a href="#display-log">Display Log</a></li>
+          </ul>
+        </div>
+        <!-- navbar ----------------------------------------------------------- END -->
       </div>
+      <!-- header ----------------------------------------------------------------------- END -->
+
+      <!-- content ---------------------------------------------------------------------- START -->
+      <div data-role="content" data-theme='a'>
+        <!-- 2 column grid ---------------------------------------------------- START -->    
+        <div class="ui-grid-a">
+          <!-- block A (column 1/row 1)  ---------------------------- START -->    
+          <div class="ui-block-a"> 
+            <div class="ui-bar ui-bar-a" id="energy-balance-logo">
+              <img src="images/energy-balance-logo.png" alt="logo for My Energy Balance app">
+            </div> 
+          </div>
+          <!-- block A (column 1/row 1)  ---------------------------- END -->
+          
+          <!-- block B (column 2/row 1)  ---------------------------- START -->
+          <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a" id="energy-balance-intro">
+              <p>
+                My Energy Balance is your personal daily energy balance tracker.<br><br>
+                Basal Metabolic Rate (BMR)<br> 
+                Amount of energy body uses for daily essential functions while at rest.<br><br>
+                Physical Activity Level (PAL)<br>
+                A way to quantify daily physical activity. Is used to estimate total daily energy expenditure (TDEE).<br><br>
+                Total daily energy expenditure (TDEE)<br>
+                Estimates the number calories the body burns daily. A method of estimating TDEE is ...<br>
+                TDEE = BMR x PAL<br><br>
+                Total Daily Caloric Intake (TDCI)<br><br>
+                Daily Energy Balance Delta (DEBD)<br>
+                DEBD = TDCI – TDEE
+              </p> 
+            </div>
+          </div>
+          <!-- block B (column 2/row 1)  ---------------------------- END -->
+        </div> 
+        <!-- 2 column grid ---------------------------------------------------- END -->    
+      </div>
+      <!-- content ---------------------------------------------------------------------- END -->
+
+      <!-- footer ----------------------------------------------------------------------- START -->
+      <div data-role="footer" data-theme='a'>
+        <h1>Copyright 2024 by Bill Burns</h1>
+      </div>
+      <!-- footer ----------------------------------------------------------------------- END -->
     </div>
+    <!-- "Home Page" ------------------------------------------------------------------------------ END -->
 
-    <!--  page footer -->
-    <div data-role="footer" data-theme='b'>
-      <h1>Copyrigtht 2020 by Kurt Friedrich</h1>
+    <!-- "details" page ------------------------- NOT DESIGNED YET -- commented out --------------- START -->
+    <!--
+    <div data-role="page" id="details">
+      >!-- header ----------------------------------------------------------------------- START --<
+      <div data-role="header" data-theme='a'>
+        <h1>Here are the details</h1>
+        >!-- navbar ----------------------------------------------------------- START --<
+        <div data-role="navbar" data-theme='a'>
+          <ul>
+            <li><a href="#home-page">Home Page</a></li>
+            <li><a href="#new-entry">New Log Entry</a></li>
+            <li><a href="#display-log">Display Log</a></li>
+    
+          </ul>
+        </div>
+        >!-- navbar ----------------------------------------------------------- END --<
+      </div>
+      >!-- header ----------------------------------------------------------------------- END --<
+
+      >!-- content ---------------------------------------------------------------------- START --<
+      <div data-role="content" data-theme='a'>
+        <p> Here are the details</p>
+        <p id="oneTitle"></p>
+        <p id="oneYear"></p>
+        <p id="oneGenre"></p>
+        <p id="oneWoman"></p>
+        <p id="oneMan"></p>
+      </div>
+      >!-- content ---------------------------------------------------------------------- END --<
+
+      >!-- footer ----------------------------------------------------------------------- START --<
+      <div data-role="footer" data-theme='a'>
+        <h1>Copyright 2024 by Bill Burns</h1>
+      </div>
+      >!-- footer ----------------------------------------------------------------------- END --<
     </div>
-  </div>
-  <!-- End of  page ------------------------------------------------------------------>
+    -->
+    <!-- "details" page ------------------------- NOT DESIGNED YET -- commented out --------------- END -->
 
+    <!-- "Log Entry" page ------------------------------------------------------------------------- START -->
+    <div data-role="page" id="new-entry">
+      <!-- header ----------------------------------------------------------------------- START -->
+      <div  data-theme='a'>
+        <h1>Log Entry</h1>
+        <!-- navbar ----------------------------------------------------------- START -->
+        <div data-role="navbar" data-theme='a'>
+          <ul>
+            <li><a href="#home-page">Home Page</a></li>
+            <li><a href="#new-entry">New Log Entry</a></li>
+            <li><a href="#display-log">Display Log</a></li>
+          </ul>
+        </div>
+        <!-- navbar ----------------------------------------------------------- END -->
+      </div>
+      <!-- header ----------------------------------------------------------------------- END -->
 
-
-<!-- Start of  page ------------------------------------------------------------------>
-  <div data-role="page" id="details">
-  
-    <!--   page header -->
-    <div data-role="header" data-theme='a'>
-      <h1>Here are the details</h1>
-      <div data-role="navbar" data-theme='b'>
-        <ul>
-          <li><a href="#home">Home Page</a></li>
-          <li><a href="#Load">Add Movie</a></li>
-          <li><a href="#ListAll">List Movies</a></li>
-  
-        </ul>
-      </div><!-- /navbar -->
-    </div>
-  
-    <!--  content -->
-    <div data-role="content" data-theme='c'>
-      <p> Here are the details</p>
-      <p id="oneTitle"></p>
-      <p id="oneYear"></p>
-      <p id="oneGenre"></p>
-      <p id="oneWoman"></p>
-      <p id="oneMan"></p>
-    </div>
-  
-    <!--    footer -->
-    <div data-role="footer" data-theme='b'>
-      <h1>Copyrigtht 2020 by Kurt Friedrich</h1>
-    </div>
-  
-  </div>
-
-
-<!-- Start of  page ------------------------------------------------------------------>
-  <div data-role="page" id="Load">
-    <!--  page header -->
-      <div data-role="header" data-position="fixed" data-theme='a'>
-    <!-- <div data-role="header" data-theme='a'> -->
-      <h1>Add a Movie</h1>
-      <div data-role="navbar" data-theme='b'>
-        <ul>
-          <li><a href="#home">Home Page</a></li>
-          <li><a href="#Load">Add Movie</a></li>
-          <li><a href="#ListAll">List Movies</a></li>
-        </ul>
-      </div><!-- /navbar -->
-
-    </div>
-
-
-
-
-    <!-- page content -->
-  
-    <div data-role="content" data-theme='c'>
-      <h2>Enter a new Movie</h2>
-      Enter movie name <br />
-      <input type="text" value="" id="title" />
-      Enter year released <br />
-      <input type="text" value="" id="year" />
-      Enter leading man <br />
-      <input type="text" value="" id="man" />
-      Enter leading woman <br />
-      <input type="text" value="" id="woman" />
+      <!-- content ---------------------------------------------------------------------- START -->    
+      <div data-role="content" data-theme='a'>
       
+        <!-- 3 column grid ---------------------------------------------------- START -->
+        
+        <div class="ui-grid-b">
+          <!-- Log entry date - block A (column 1/row 1)  ----------- START -->    
+          <div class="ui-block-a"> 
+            <div class="ui-bar ui-bar-a">
+              <label for="selected-date">Log Entry Date:</label>
+              <input type="date" name="selected-date" id="selected-date" value="" />
+            </div> 
+          </div>        
+          <!-- Log entry date - block A (column 1/row 1)  ----------- END -->    
+       
+          <!-- PAL - block B (column 2/row 1)  ---------------------- START -->    
+          <div class="ui-block-b">
+            <div class="ui-field-contain ui-bar ui-bar-a">
+              <label for="selected-pal">Physical Activity Level (PAL):</label>
+              <select name="selected-pal" id="selected-pal">
+                <option disabled selected value>Select today's PAL</option>
+                <option value=1.5>Sedentary with no exercise</option>
+                <option value=1.8>Sedentary with little exercise</option>
+                <option value=2.0>Moderately Active</option>
+                <option value=2.2>Vigorously Active</option>
+                <option value=2.5>Extremely Active</option>
+              </select>
+            </div>
+          </div>
+          <!-- block B (column 2/row 1)  ---------------------------- END -->
+          
+          <!-- block C (column 3/row 1)  ---------------------------- START -->
+          <div class="ui-block-c">
+            <div class="ui-bar ui-bar-a">
+              <input type="button" value="Add New Log Entry" id="entry-add"/>
+            </div>
+          </div>
+          <!-- block C (column 3/row 1)  ---------------------------- END -->
+
+          <!-- block A (column 1/row 2)  - lacks protein cal select - START -->    
+          <div class="ui-block-a"> 
+            <div class="ui-bar ui-bar-a">
+              <div class="ui-field-contain">
+                <label for="spin">Input spinner</label>
+                <input type="text" data-role="spinbox" data-mini="true" name="spin" id="spin" value="60" min="0" max="100" />
+              </div>   
+            </div> 
+          </div>
+          <!-- block A (column 1/row 2)  - lacks protein cal select - END -->    
+          
+          <!-- block B (column 2/row 2)  - lacks carbo cal select --- START -->       
+          <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a">
+            </div>
+          </div>
+          <!-- block B (column 2/row 2)  - lacks carbo cal select --- END -->       
+          
+          <!-- block C (column 3/row 2)  - lacks fat cal select ----- START -->
+          <div class="ui-block-c">
+            <div class="ui-bar ui-bar-a">
+            </div>
+          </div>
+          <!-- block C (column 3/row 2)  - lacks fat cal select ----- END -->
+          
+          <!-- block A (column 1/row 3)  - lacks gender select ------ START -->    
+          <div class="ui-block-a"> 
+            <div class="ui-bar ui-bar-a" id="???">
+            </div> 
+          </div>
+          <!-- block A (column 1/row 3)  - lacks gender select ------ END -->   
+          
+          <!-- block B (column 2/row 3)  - NOT USED ----------------- START -->    
+          <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a">
+            </div>
+          </div>
+          <!-- block B (column 2/row 3)  - NOT USED ----------------- END -->
+          
+          <!-- block C (column 3/row 3)  - NOT USED ----------------- START -->    
+          <div class="ui-block-c">
+            <div class="ui-bar ui-bar-a">
+            </div>
+          </div>
+          <!-- block C (column 3/row 3)  - NOT USED ----------------- END -->    
+          
+          <!-- block A (column 1/row 4)  - lacks age select --------- START -->    
+          <div class="ui-block-a"> 
+            <div class="ui-bar ui-bar-a" id="???">
+            </div> 
+          </div>
+          <!-- block A (column 1/row 4)  - lacks age select --------- END -->    
+          
+          <!-- block B (column 2/row 4)  - lacks height select ------ START -->    
+          <div class="ui-block-b">
+            <div class="ui-bar ui-bar-a">
+            </div>
+          </div>
+          <!-- block B (column 2/row 4)  - lacks height select ------ END -->
+          
+          <!-- block C (column 3/row 4)  - lacks weight select ------ START -->
+          <div class="ui-block-c">
+            <div class="ui-bar ui-bar-a">
+            </div>
+          </div>
+          <!-- block C (column 3/row 4)  - lacks weight select ------ END -->
+          
+        </div>
+        <!-- 3 column grid ---------------------------------------------------- END -->   
+<!--
+        <h2>Enter a new Movie</h2>
+        Enter movie name <br />
+        <input type="text" value="" id="title" />
+        Enter year released <br />
+        <input type="text" value="" id="year" />
+        Enter leading man <br />
+        <input type="text" value="" id="man" />
+        Enter leading woman <br />
+        <input type="text" value="" id="woman" />
+        
         <div class="ui-field-contain">
           <label for="select-genre">Select a Genre</label>
           <select name="select-genre" id="select-genre">
@@ -128,59 +285,53 @@
             <option value="Western">Western</option>
           </select>
         </div>
-    
-    
-      <input type="button" value="Click To Add Movie" id="buttonAdd" data-inline="true" />
-      <input type="button" value="Clear Data" id="buttonClear" data-inline="true" />
-    </div>
-
-    
-    
-    
-    
-    
-    
-    
-    <!--   page footer -->
-    <div data-role="footer" data-theme='b'>
-      <h1>Copyrigtht 2020 by Kurt Friedrich</h1>
-    </div>
-  </div>
-  <!-- End of  page ------------------------------------------------------------------>
-
-
-<!-- Start of  page ------------------------------------------------------------------>
-  <div data-role="page" id="ListAll">
-    <!--   page header -->
-    <div data-role="header" data-theme='a'>
-      <h1>My Movie List</h1>
-      <div data-role="navbar" data-theme='b'>
-        <ul>
-          <li><a href="#home">Home Page</a></li>
-          <li><a href="#Load">Add Movie</a></li>
-          <li><a href="#ListAll">List Movies</a></li>
-        </ul>
-      </div><!-- /navbar -->
-
-    </div>
-    <!--   page content -->
-    <div data-role="content" data-theme='e'>
-      <p> Here are my Movies</p>
-      <div>
-        <ul id="MovieListul"></ul>
+-->
+      
       </div>
+      <!-- content ---------------------------------------------------------------------- END -->      
+
+      <!-- footer ----------------------------------------------------------------------- START -->    
+      <div data-role="footer" data-theme='a'>
+        <h1>Copyright 2024 by Bill Burns</h1>
+      </div>
+      <!-- footer ----------------------------------------------------------------------- END -->    
     </div>
+    <!-- "Log Entry" page ------------------------------------------------------------------------- END -->
 
+    <!-- "Display Log" page ----------------------------------------- commented out --------------- START -->
+    <!--
+    <div data-role="page" id="ListAll">
+      >!-- header ----------------------------------------------------------------------- START --<
+      <div data-role="header" data-theme='a'>
+        <h1>My Movie List</h1>
+        <!-- navbar ----------------------------------------------------------- START --<
+        <div data-role="navbar" data-theme='a'>
+          <ul>
+            <li><a href="#home-page">Home Page</a></li>
+            <li><a href="#new-entry">New Log Entry</a></li>
+            <li><a href="#display-log">Display Log</a></li>
+          </ul>
+        </div>
+        >!-- navbar ----------------------------------------------------------- END --<
+      </div>
+      >!-- header ----------------------------------------------------------------------- END --<
 
-    <!--   page footer -->
-    <div data-role="footer" data-theme='b'>
-      <h1>Copyrigtht 2020 by Kurt Friedrich</h1>
+      >!-- content ---------------------------------------------------------------------- START --<
+      <div data-role="content" data-theme='a'>
+        <p> Here are my Movies</p>
+        <div>
+          <ul id="MovieListul"></ul>
+        </div>
+      </div>
+      >!-- content ---------------------------------------------------------------------- END --<
+
+      >!-- footer ----------------------------------------------------------------------- START --<    
+      <div data-role="footer" data-theme='a'>
+        <h1>Copyright 2024 by Bill Burns</h1>
+      </div>
+      >!-- footer ----------------------------------------------------------------------- END --<    
     </div>
-  </div>
-  </div>
-  <!-- End of  page ------------------------------------------------------------------>
-
-
-</body>
-
+    -->
+    <!-- "Display Log" page ----------------------------------------- commented out --------------- END -->
+  </body>
 </html>
